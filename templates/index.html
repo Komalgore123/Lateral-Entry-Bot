@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LateralEntryBot — Maharashtra DSY Admission Helper</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <span class="logo-icon">🎓</span>
+        <div>
+          <h1>LateralEntryBot</h1>
+          <p>Direct Second Year Engineering Admission · Maharashtra</p>
+        </div>
+      </div>
+      <a class="official-link" href="https://cetcell.mahacet.org/" target="_blank" rel="noopener">
+        Official CET Cell ↗
+      </a>
+    </div>
+  </header>
+
+  <main class="main-layout">
+
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar">
+
+      <!-- Upload panel -->
+      <section class="card upload-card">
+        <h2>Upload Documents</h2>
+        <p class="hint">
+          Upload official admission PDFs (brochures, notices). Max 10 MB per file.
+        </p>
+        <label class="file-label" for="pdfInput">
+          <span id="fileLabel">Choose PDF file…</span>
+          <input type="file" id="pdfInput" accept=".pdf" />
+        </label>
+        <button class="btn btn-primary" id="uploadBtn">Upload &amp; Index</button>
+        <div id="uploadStatus" class="status-msg" role="status" aria-live="polite"></div>
+        <p class="disclaimer">
+          ⚠ Uploaded files are <strong>not automatically verified</strong> as official
+          documents. Always confirm information at
+          <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener">cetcell.mahacet.org</a>.
+        </p>
+      </section>
+
+      <!-- Indexed documents list -->
+      <section class="card docs-card">
+        <h2>Indexed Documents</h2>
+        <ul id="docList" class="doc-list">
+          <li class="empty-msg">No documents uploaded yet.</li>
+        </ul>
+        <button class="btn btn-secondary btn-sm" id="refreshDocsBtn">Refresh list</button>
+      </section>
+
+    </aside>
+
+    <!-- ── Chat panel ── -->
+    <section class="chat-panel">
+
+      <!-- FAQ quick buttons -->
+      <div class="faq-bar">
+        <span class="faq-label">Quick questions:</span>
+        <div class="faq-buttons">
+          <button class="faq-btn" data-q="What are the eligibility criteria for DSY lateral entry admission in Maharashtra?">Eligibility</button>
+          <button class="faq-btn" data-q="What documents are required for lateral entry admission?">Documents</button>
+          <button class="faq-btn" data-q="How does the CAP round process work for DSY admission?">CAP Rounds</button>
+          <button class="faq-btn" data-q="How do I fill the option form for DSY admission?">Option Form</button>
+          <button class="faq-btn" data-q="What is the complete step-by-step admission process for DSY?">Admission Process</button>
+          <button class="faq-btn" data-q="What are the important dates and schedule for DSY lateral entry admission?">Important Dates</button>
+        </div>
+      </div>
+
+      <!-- Message history -->
+      <div class="chat-window" id="chatWindow" role="log" aria-live="polite" aria-label="Chat messages">
+        <div class="message bot-message">
+          <div class="message-bubble">
+            <p>
+              👋 Hello! I am <strong>LateralEntryBot</strong>, your assistant for
+              <strong>Direct Second Year (Lateral Entry) Engineering Admission</strong>
+              in Maharashtra.
+            </p>
+            <p>
+              Upload official admission PDFs using the panel on the left, then ask me
+              anything about eligibility, documents, CAP rounds, fees, or the admission
+              schedule.
+            </p>
+            <p>
+              I will answer <em>only</em> from the uploaded documents. For authoritative
+              information always visit
+              <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener">cetcell.mahacet.org</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input row -->
+      <form class="input-row" id="chatForm" novalidate>
+        <textarea
+          id="questionInput"
+          class="question-input"
+          placeholder="Type your question here…"
+          rows="2"
+          aria-label="Your question"
+          maxlength="1000"
+        ></textarea>
+        <button type="submit" class="btn btn-primary send-btn" id="sendBtn">
+          Send
+        </button>
+      </form>
+      <p class="char-count" id="charCount">0 / 1000</p>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      LateralEntryBot provides information based on uploaded documents only.
+      Always verify admission details at the
+      <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener">official CET Cell website</a>.
+      Do not upload personal or private documents.
+    </p>
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
